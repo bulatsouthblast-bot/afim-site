@@ -22,5 +22,138 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+.section-kicker {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(16 21 18 / 0.45);
+}
+
+.gallery-tile {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #344236, #151a16);
+}
+
+.gallery-tile::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  background: linear-gradient(to top, rgb(0 0 0 / 0.64), transparent 65%);
+}
+
+.gallery-tile-content {
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-tile-2 {
+  background: linear-gradient(145deg, #75904b, #1b241b);
+}
+
+.gallery-tile-3 {
+  background: linear-gradient(145deg, #223b34, #0f1613);
+}
+
+.gallery-tile-4 {
+  background: linear-gradient(145deg, #9ab46b, #263321);
+}
+
+.hero-image {
+  transform: scale(1);
+  transition: transform 1.8s ease-out;
+}
+
+.hero-collage-tile {
+  background: linear-gradient(145deg, #304931, #131b15 72%);
+}
+
+.hero-collage-tile-2 {
+  background: linear-gradient(145deg, #5b7243, #182218 72%);
+}
+
+.hero-collage-tile-3 {
+  background: linear-gradient(145deg, #1b3a32, #111915 72%);
+}
+
+.coach-placeholder {
+  background: linear-gradient(145deg, #304931, #151d16 72%);
+}
+
+.coach-placeholder-2 {
+  background: linear-gradient(145deg, #587044, #182218 72%);
+}
+
+.coach-placeholder-3 {
+  background: linear-gradient(145deg, #1d4035, #111a16 72%);
+}
+
+.branch-placeholder {
+  background: linear-gradient(145deg, #385238, #162017 72%);
+}
+
+.branch-placeholder-2 {
+  background: linear-gradient(145deg, #638148, #1b271a 72%);
+}
+
+.branch-placeholder-3 {
+  background: linear-gradient(145deg, #215045, #101a16 72%);
+}
+
+.branch-placeholder-4 {
+  background: linear-gradient(145deg, #795e36, #282016 72%);
+}
+
+.sponsor-marquee-track {
+  animation: sponsor-marquee 28s linear infinite;
+}
+
+@keyframes sponsor-marquee {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.hero-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+@starting-style {
+  .hero-image {
+    transform: scale(1.06);
+  }
+
+  .hero-content {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-image,
+  .hero-content,
+  .sponsor-marquee-track {
+    transition: none;
+    animation: none;
+  }
 }
