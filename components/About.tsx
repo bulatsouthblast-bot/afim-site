@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const values = [
   ["Профессиональный путь", "Помогаем пройти путь от первых тренировок к серьёзным футбольным целям."],
   ["Высокие достижения", "Закладываем фундамент для интенсивной подготовки и спортивного роста."],
@@ -15,8 +17,23 @@ export function About() {
             Путь ребёнка — к большому футболу.
           </h2>
         </div>
-        <p className="max-w-2xl text-lg leading-relaxed text-black/65 sm:text-xl">
-          Наша цель — не просто научить ребёнка играть в футбол. Мы создаём среду, в которой дети могут пройти путь от первых тренировок до профессионального футбола и получить ценности, которые помогут им стать лидерами в спорте и жизни.
+        <div>
+          <p className="max-w-2xl text-lg leading-relaxed text-black/65 sm:text-xl">
+            Наша цель — не просто научить ребёнка играть в футбол. Мы создаём среду, в которой дети могут пройти путь от первых тренировок до профессионального футбола и получить ценности, которые помогут им стать лидерами в спорте и жизни.
+          </p>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-7xl rounded-[32px] border border-neutral-200/70 bg-white p-5 shadow-sm sm:p-8">
+        <Image
+          src="/images/organizations/partners.webp"
+          alt="Партнёры академии: FIFA, AFC, KFU и AFIM"
+          width={2172}
+          height={724}
+          className="w-full object-contain"
+        />
+        <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-relaxed text-neutral-600 sm:text-lg">
+          При поддержке FIFA, AFC и Кыргызского футбольного союза Академия футбола имени Асылбека Момунова реализует современные программы подготовки молодых футболистов и развивает детский футбол в Кыргызстане.
         </p>
       </div>
 

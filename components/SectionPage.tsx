@@ -18,7 +18,7 @@ export function SectionPage({ number, title, description }: SectionPageProps) {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#b6ff3b]">{number} / AFIM</p>
           <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.96] tracking-[-0.06em] sm:text-6xl lg:text-8xl">{title}</h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">{description}</p>
-          <Link href="/#contact" className="mt-10 inline-flex rounded-full bg-white px-7 py-4 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90">
+          <Link href="/#contacts" className="mt-10 inline-flex rounded-full bg-white px-7 py-4 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90">
             Записаться в AFIM
           </Link>
         </div>

@@ -140,7 +140,7 @@ export default function BranchesPage() {
               <h2 className="max-w-3xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">Начните свой путь в большой футбол уже сегодня.</h2>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-black/70">Наша цель — подготовить новое поколение игроков для профессиональных клубов и национальной сборной Кыргызстана, а также воспитать будущих тренеров, менеджеров и лидеров, которые будут развивать футбол страны.</p>
             </div>
-            <Link href="/#contact" className="inline-flex shrink-0 justify-center rounded-full bg-[#101512] px-8 py-4 text-sm font-bold text-white transition duration-300 hover:scale-105">Записаться на тренировку</Link>
+            <Link href="/#contacts" className="inline-flex shrink-0 justify-center rounded-full bg-[#101512] px-8 py-4 text-sm font-bold text-white transition duration-300 hover:scale-105">Записаться на тренировку</Link>
           </div>
         </section>
       </main>

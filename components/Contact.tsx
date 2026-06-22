@@ -2,7 +2,7 @@ const phone = "+996(550) 32 35 02";
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-white px-6 py-20 text-[#101512] sm:px-8 sm:py-28 lg:px-10">
+    <section id="contacts" className="bg-white px-6 py-20 text-[#101512] sm:px-8 sm:py-28 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-end">
         <div>
           <p className="section-kicker">07 / Контакты</p>

@@ -8,7 +8,7 @@ export function Franchise() {
         </div>
         <div>
           <p className="max-w-md text-lg leading-relaxed text-black/70">Расскажем о стандартах академии и формате сотрудничества, который помогает развивать футбол в регионах Кыргызстана.</p>
-          <a href="mailto:AFIMOSH@yandex.com?subject=%D0%A4%D1%80%D0%B0%D0%BD%D1%87%D0%B0%D0%B9%D0%B7%D0%B8%D0%BD%D0%B3%20AFIM" className="mt-7 inline-flex rounded-full bg-[#101512] px-6 py-3.5 text-sm font-bold text-white transition duration-300 hover:scale-105">Обсудить сотрудничество</a>
+          <a href="#contacts" className="mt-7 inline-flex rounded-full bg-[#101512] px-6 py-3.5 text-sm font-bold text-white transition duration-300 hover:scale-105">Обсудить сотрудничество</a>
         </div>
       </div>
     </section>

@@ -1,23 +1,44 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import Image from "next/image";
 
-const logoPath = "/images/sponsors/megaline.png";
-const logos = Array.from({ length: 6 });
+export type Sponsor = {
+  src: string;
+  name: string;
+};
 
-export function Sponsors() {
-  const hasLogo = existsSync(join(process.cwd(), "public", logoPath.slice(1)));
+const defaultSponsors: Sponsor[] = [
+  { src: "/images/sponsors/megaline.png", name: "Megaline" },
+];
+
+type SponsorsProps = {
+  sponsors?: readonly Sponsor[];
+};
+
+export function Sponsors({ sponsors = defaultSponsors }: SponsorsProps) {
+  if (sponsors.length === 0) {
+    return null;
+  }
+
+  // A longer first run keeps the belt filled even on wide screens. The second
+  // identical run is what lets it return to its initial position seamlessly.
+  const filledSponsors = Array.from({ length: 12 }, () => sponsors).flat();
+  const marqueeSponsors = [...filledSponsors, ...filledSponsors];
 
   return (
-    <section aria-label="Партнёр Megaline" className="flex h-32 overflow-hidden bg-[#f5f5f5] sm:h-36">
-      <div className="sponsor-marquee-track flex w-max items-center gap-20 pr-20">
-        {[...logos, ...logos].map((_, index) => (
-          <div key={index} className="flex h-16 w-40 shrink-0 items-center justify-center sm:w-52">
-            {hasLogo ? (
-              <Image src={logoPath} alt="" width={208} height={72} className="h-10 w-auto max-w-full object-contain sm:h-14" />
-            ) : (
-              <span className="text-lg font-black uppercase tracking-[-0.04em] text-black/35 sm:text-2xl">Megaline</span>
-            )}
+    <section aria-label="Партнёры AFIM" className="overflow-hidden bg-white py-3 sm:py-4">
+      <div className="sponsor-marquee-track flex w-max items-center gap-3 pr-3 sm:gap-6 sm:pr-6">
+        {marqueeSponsors.map((sponsor, index) => (
+          <div
+            key={`${sponsor.src}-${index}`}
+            className="flex h-[4.5rem] w-28 shrink-0 items-center justify-center sm:h-28 sm:w-36"
+          >
+            <Image
+              src={sponsor.src}
+              alt=""
+              aria-hidden="true"
+              width={184}
+              height={144}
+              className="h-16 w-auto max-w-full object-contain sm:h-24"
+            />
           </div>
         ))}
       </div>

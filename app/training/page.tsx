@@ -62,7 +62,7 @@ export default function TrainingPage() {
                   <h3 className="mt-8 text-2xl font-black tracking-[-0.04em]">{title}</h3>
                   <p className="mt-4 max-w-xl leading-relaxed text-black/60">{description}</p>
                   <p className="mt-7 text-sm font-medium text-black/50">Тренировок в неделю: уточняется при записи</p>
-                  <Link href="/#contact" className="mt-6 inline-flex rounded-full bg-[#101512] px-5 py-3 text-sm font-bold text-white transition duration-300 hover:scale-105">Записаться</Link>
+                  <Link href="/#contacts" className="mt-6 inline-flex rounded-full bg-[#101512] px-5 py-3 text-sm font-bold text-white transition duration-300 hover:scale-105">Записаться</Link>
                 </article>
               ))}
             </div>
@@ -77,7 +77,7 @@ export default function TrainingPage() {
               <p className="section-kicker text-white/45">Ваш следующий шаг</p>
               <h2 className="mt-5 max-w-2xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">Начните путь в большой футбол вместе с AFIM.</h2>
             </div>
-            <Link href="/#contact" className="inline-flex shrink-0 justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90">Записаться на тренировку</Link>
+            <Link href="/#contacts" className="inline-flex shrink-0 justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90">Записаться на тренировку</Link>
           </div>
         </section>
       </main>

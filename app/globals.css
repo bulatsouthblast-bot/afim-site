@@ -119,16 +119,17 @@ section {
 }
 
 .sponsor-marquee-track {
-  animation: sponsor-marquee 28s linear infinite;
+  animation: sponsor-marquee 90s linear infinite;
+  will-change: transform;
 }
 
 @keyframes sponsor-marquee {
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 

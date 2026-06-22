@@ -16,7 +16,14 @@ export function Gallery() {
         <p className="section-kicker text-white/45">05 / Галерея</p>
         <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">Каждая тренировка — часть большой игры.</h2>
-          <a href="#contact" className="shrink-0 text-sm font-bold text-[#b6ff3b] transition-opacity hover:opacity-70">Следить за AFIM →</a>
+          <a
+            href="https://www.instagram.com/academiaosh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-sm font-bold text-[#b6ff3b] transition-opacity hover:opacity-70"
+          >
+            Следить за AFIM →
+          </a>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
           {galleryItems.map(({ title, description, image }, index) => (

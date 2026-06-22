@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sponsors } from "@/components/Sponsors";
@@ -23,7 +23,7 @@ export default function FranchisePage() {
             <p className="mt-8 max-w-3xl text-xl leading-relaxed text-white/70 sm:text-2xl">Создавайте сильную среду для будущих игроков, тренеров и лидеров футбола Кыргызстана вместе с академией AFIM.</p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a {...pdfProps} className="inline-flex justify-center rounded-full bg-white px-7 py-4 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90">Скачать предложение PDF</a>
-              <Link href="mailto:AFIMOSH@yandex.com?subject=%D0%A4%D1%80%D0%B0%D0%BD%D1%87%D0%B0%D0%B9%D0%B7%D0%B8%D0%BD%D0%B3%20AFIM" className="inline-flex justify-center rounded-full border border-white/30 px-7 py-4 text-sm font-bold text-white transition duration-300 hover:bg-white/10">Обсудить сотрудничество</Link>
+              <a href="#contacts" className="inline-flex justify-center rounded-full border border-white/30 px-7 py-4 text-sm font-bold text-white transition duration-300 hover:bg-white/10">Обсудить сотрудничество</a>
             </div>
           </div>
         </section>
@@ -61,6 +61,7 @@ export default function FranchisePage() {
             <a {...pdfProps} className="inline-flex shrink-0 justify-center rounded-full bg-[#101512] px-7 py-4 text-sm font-bold text-white transition duration-300 hover:scale-105">Скачать предложение PDF</a>
           </div>
         </section>
+        <Contact />
       </main>
       <Footer />
     </>

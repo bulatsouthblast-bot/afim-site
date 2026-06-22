@@ -8,7 +8,7 @@ export function Coaches() {
         </div>
         <div className="border-l-2 border-[#b6ff3b] pl-6 sm:pl-8">
           <p className="text-xl leading-relaxed text-black/70 sm:text-2xl">Наши тренеры помогают ребёнку расти как игроку, лидеру и будущему представителю футбольной индустрии. Требовательность здесь всегда идёт рядом с вниманием и поддержкой.</p>
-          <a href="#contact" className="mt-8 inline-flex border-b border-black pb-1 text-sm font-bold transition-opacity hover:opacity-55">Узнать о тренировках</a>
+          <a href="#contacts" className="mt-8 inline-flex border-b border-black pb-1 text-sm font-bold transition-opacity hover:opacity-55">Узнать о тренировках</a>
         </div>
       </div>
     </section>

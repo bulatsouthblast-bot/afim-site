@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export function Header() {
   const links = [
+    ["Главная", "/"],
     ["Об академии", "/about"],
     ["Подготовка", "/training"],
     ["Филиалы", "/branches"],
@@ -44,7 +45,7 @@ export function Header() {
             </nav>
           </details>
           <Link
-            href="/#contact"
+            href="/#contacts"
             className="rounded-full bg-white px-4 py-3 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:px-5"
           >
             Записаться
