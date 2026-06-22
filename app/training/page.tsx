@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CoachRoster } from "@/components/CoachRoster";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sponsors } from "@/components/Sponsors";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+  "Программы подготовки | AFIM",
+  "Программы подготовки футболистов от 6 до 16 лет. Техническая, физическая и тактическая подготовка детей в Академии футбола имени Асылбека Момунова.",
+  ["футбольные тренировки Ош", "подготовка футболистов", "детские футбольные секции", "футбол для детей Кыргызстан"],
+  "/training",
+);
 
 const advantages = [
   ["⚽", "Индивидуальные и групповые тренировки"],

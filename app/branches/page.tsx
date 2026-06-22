@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sponsors } from "@/components/Sponsors";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+  "Филиалы академии | AFIM",
+  "Филиалы Академии футбола имени Асылбека Момунова в Кыргызстане. Найдите ближайший филиал и запишите ребёнка на тренировки.",
+  ["футбольная школа Ош", "филиалы футбольной академии", "детский футбол Кыргызстан"],
+  "/branches",
+);
 
 const approach = [
   ["⚽", "технические навыки"],

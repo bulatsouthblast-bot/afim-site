@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+
 const branches = [
   {
     district: "Микрорайон Кулатов",
@@ -26,25 +30,27 @@ const branches = [
 ];
 
 export function Branches() {
+  const { t } = useLanguage();
+
   return (
     <section id="branches" className="bg-[#dce2d8] px-6 py-20 text-[#101512] sm:px-8 sm:py-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="section-kicker">04 / Филиалы</p>
-          <h2 className="mt-5 text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">Большой футбол начинается рядом с домом.</h2>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-black/65">Выберите удобный филиал и начните путь ребёнка к сильной футбольной школе.</p>
+          <p className="section-kicker">{t("branches.eyebrow")}</p>
+          <h2 className="mt-5 text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">{t("branches.title")}</h2>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-black/65">{t("branches.description")}</p>
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="grid gap-4 sm:grid-cols-2">
             {branches.map((branch, index) => (
               <article key={branch.district} className="group min-h-60 rounded-3xl border border-black/10 bg-white p-6 shadow-[0_12px_30px_rgb(16_21_18/0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_38px_rgb(16_21_18/0.12)] sm:p-7">
-                <p className="text-xs font-bold tracking-[0.18em] text-black/35">ФИЛИАЛ 0{index + 1}</p>
+                <p className="text-xs font-bold tracking-[0.18em] text-black/35">{t("branches.label")} 0{index + 1}</p>
                 <h3 className="mt-6 text-2xl font-black leading-tight tracking-[-0.04em]">{branch.district}</h3>
                 <p className="mt-4 text-sm font-bold text-black/75">{branch.venue}</p>
                 <p className="mt-1 text-sm leading-relaxed text-black/55">{branch.address.map((line) => <span key={line} className="block">{line}</span>)}</p>
                 <a href={branch.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#2d591e] transition-colors hover:text-black">
-                  Показать на карте <span aria-hidden="true">↗</span>
+                  {t("branches.map")} <span aria-hidden="true">↗</span>
                 </a>
               </article>
             ))}
@@ -54,7 +60,7 @@ export function Branches() {
             <div className="absolute -left-24 top-20 h-72 w-[32rem] -rotate-12 rounded-[50%] border border-white/10" />
             <div className="absolute -right-32 -top-20 h-80 w-[28rem] rotate-12 rounded-[50%] border border-white/10" />
             <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(90deg,transparent_49.5%,rgba(255,255,255,.25)_50%,transparent_50.5%),linear-gradient(transparent_49.5%,rgba(255,255,255,.25)_50%,transparent_50.5%)] [background-size:4.5rem_4.5rem]" />
-            <p className="relative text-xs font-bold uppercase tracking-[0.2em] text-white/45">Карта филиалов</p>
+            <p className="relative text-xs font-bold uppercase tracking-[0.2em] text-white/45">{t("branches.mapTitle")}</p>
             <p className="relative mt-3 text-4xl font-black tracking-[-0.06em]">Ош</p>
             <div className="relative mt-12 h-28">
               <span className="absolute left-[12%] top-[18%] h-3 w-3 rounded-full bg-[#b6ff3b] ring-8 ring-[#b6ff3b]/15" />
@@ -64,7 +70,7 @@ export function Branches() {
               <span className="absolute left-[16%] top-[22%] h-px w-[45%] -rotate-12 bg-white/25" />
               <span className="absolute left-[38%] top-[58%] h-px w-[42%] -rotate-6 bg-white/25" />
             </div>
-            <p className="relative max-w-xs text-sm leading-relaxed text-white/60">Откройте карточку филиала, чтобы построить маршрут в привычном сервисе карт.</p>
+            <p className="relative max-w-xs text-sm leading-relaxed text-white/60">{t("branches.mapDescription")}</p>
           </aside>
         </div>
       </div>

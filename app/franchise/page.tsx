@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sponsors } from "@/components/Sponsors";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+  "Франшиза футбольной академии | AFIM",
+  "Откройте филиал Академии футбола имени Асылбека Момунова в своём городе. Франшиза детской футбольной академии в Кыргызстане.",
+  ["франшиза футбольной школы", "франшиза футбольной академии", "детский футбол бизнес", "AFIM франшиза"],
+  "/franchise",
+);
 
 const pdfProps = {
   href: "/files/franchise-afim.pdf",

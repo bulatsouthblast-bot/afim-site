@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Sponsors } from "@/components/Sponsors";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata(
+  "Об академии | AFIM",
+  "История, миссия и философия Академии футбола имени Асылбека Момунова. Развитие детского футбола и подготовка будущих профессиональных игроков.",
+  ["об академии AFIM", "история футбольной академии", "детский футбол Кыргызстан", "футбольная академия Ош"],
+  "/about",
+);
 
 const academyAdvantages = [
   "Единственная академия со звездой АФК в Кыргызстане.",

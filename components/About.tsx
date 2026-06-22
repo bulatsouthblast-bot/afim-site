@@ -1,25 +1,29 @@
-import Image from "next/image";
+"use client";
 
-const values = [
-  ["Профессиональный путь", "Помогаем пройти путь от первых тренировок к серьёзным футбольным целям."],
-  ["Высокие достижения", "Закладываем фундамент для интенсивной подготовки и спортивного роста."],
-  ["Характер и лидерство", "Воспитываем дисциплину, ответственность и умение вести за собой."],
-  ["Футбол страны", "Развиваем будущих тренеров, менеджеров и специалистов индустрии."],
-];
+import Image from "next/image";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export function About() {
+  const { t } = useLanguage();
+  const values = [
+    [t("about.value1.title"), t("about.value1.description")],
+    [t("about.value2.title"), t("about.value2.description")],
+    [t("about.value3.title"), t("about.value3.description")],
+    [t("about.value4.title"), t("about.value4.description")],
+  ];
+
   return (
     <section id="about" className="bg-[#f3f5f1] px-6 py-20 text-[#101512] sm:px-8 sm:py-28 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <div>
-          <p className="section-kicker">01 / Об академии</p>
+          <p className="section-kicker">{t("about.eyebrow")}</p>
           <h2 className="mt-5 max-w-lg text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">
-            Путь ребёнка — к большому футболу.
+            {t("about.title")}
           </h2>
         </div>
         <div>
           <p className="max-w-2xl text-lg leading-relaxed text-black/65 sm:text-xl">
-            Наша цель — не просто научить ребёнка играть в футбол. Мы создаём среду, в которой дети могут пройти путь от первых тренировок до профессионального футбола и получить ценности, которые помогут им стать лидерами в спорте и жизни.
+            {t("about.description")}
           </p>
         </div>
       </div>
@@ -27,13 +31,13 @@ export function About() {
       <div className="mx-auto mt-12 max-w-7xl rounded-[32px] border border-neutral-200/70 bg-white p-5 shadow-sm sm:p-8">
         <Image
           src="/images/organizations/partners.webp"
-          alt="Партнёры академии: FIFA, AFC, KFU и AFIM"
+          alt={t("about.partners")}
           width={2172}
           height={724}
           className="w-full object-contain"
         />
         <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-relaxed text-neutral-600 sm:text-lg">
-          При поддержке FIFA, AFC и Кыргызского футбольного союза Академия футбола имени Асылбека Момунова реализует современные программы подготовки молодых футболистов и развивает детский футбол в Кыргызстане.
+          {t("about.partnersText")}
         </p>
       </div>
 

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export type Sponsor = {
   src: string;
@@ -14,6 +17,7 @@ type SponsorsProps = {
 };
 
 export function Sponsors({ sponsors = defaultSponsors }: SponsorsProps) {
+  const { t } = useLanguage();
   if (sponsors.length === 0) {
     return null;
   }
@@ -24,7 +28,7 @@ export function Sponsors({ sponsors = defaultSponsors }: SponsorsProps) {
   const marqueeSponsors = [...filledSponsors, ...filledSponsors];
 
   return (
-    <section aria-label="Партнёры AFIM" className="overflow-hidden bg-white py-3 sm:py-4">
+    <section aria-label={t("sponsors.label")} className="overflow-hidden bg-white py-3 sm:py-4">
       <div className="sponsor-marquee-track flex w-max items-center gap-3 pr-3 sm:gap-6 sm:pr-6">
         {marqueeSponsors.map((sponsor, index) => (
           <div

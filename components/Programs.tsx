@@ -1,17 +1,22 @@
-const programs = [
-  ["6–8 лет", "Старт большого пути", "Формируем любовь к игре, координацию и базовые навыки будущего футболиста."],
-  ["9–12 лет", "Фундамент игрока", "Развиваем технику, скорость решений и понимание современного футбола."],
-  ["13–16 лет", "Подготовка к уровню выше", "Укрепляем физическую готовность, дисциплину и соревновательное мышление."],
-];
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
 
 export function Programs() {
+  const { t } = useLanguage();
+  const programs = [
+    [t("programs.age1"), t("programs.card1.title"), t("programs.card1.description")],
+    [t("programs.age2"), t("programs.card2.title"), t("programs.card2.description")],
+    [t("programs.age3"), t("programs.card3.title"), t("programs.card3.description")],
+  ];
+
   return (
     <section id="groups" className="bg-[#101512] px-6 py-20 text-white sm:px-8 sm:py-28 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        <p className="section-kicker text-white/45">02 / Группы</p>
+        <p className="section-kicker text-white/45">{t("programs.eyebrow")}</p>
         <div className="mt-5 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <h2 className="max-w-2xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">Каждая группа — ступень к большому футболу.</h2>
-          <p className="max-w-sm leading-relaxed text-white/60">Тренировочный процесс выстроен по возрасту, уровню подготовки и спортивным амбициям ребёнка.</p>
+          <h2 className="max-w-2xl text-4xl font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">{t("programs.title")}</h2>
+          <p className="max-w-sm leading-relaxed text-white/60">{t("programs.description")}</p>
         </div>
         <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-white/15 md:grid-cols-3">
           {programs.map(([age, title, description]) => (

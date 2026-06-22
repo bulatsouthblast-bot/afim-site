@@ -1,14 +1,47 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { type Language } from "@/lib/i18n";
+import { useLanguage } from "@/components/LanguageProvider";
+
+const languages: { code: Language; label: string }[] = [
+  { code: "ru", label: "RU" },
+  { code: "kg", label: "KG" },
+  { code: "en", label: "EN" },
+];
+
+function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguage();
+
+  return (
+    <div className="flex items-center rounded-full border border-white/20 p-1 text-xs font-bold text-white/70">
+      {languages.map(({ code, label }) => (
+        <button
+          key={code}
+          type="button"
+          onClick={() => setLanguage(code)}
+          className={`rounded-full px-2 py-1 transition ${language === code ? "bg-white text-black" : "hover:text-white"}`}
+          aria-pressed={language === code}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export function Header() {
+  const { t } = useLanguage();
+  const pathname = usePathname();
   const links = [
-    ["Главная", "/"],
-    ["Об академии", "/about"],
-    ["Подготовка", "/training"],
-    ["Филиалы", "/branches"],
-    ["Галерея", "/gallery"],
-    ["Франчайзинг", "/franchise"],
+    [t("nav.home"), "/"],
+    [t("nav.about"), "/about"],
+    [t("nav.training"), "/training"],
+    [t("nav.branches"), "/branches"],
+    [t("nav.gallery"), "/gallery"],
+    [t("nav.franchise"), "/franchise"],
   ];
 
   return (
@@ -16,7 +49,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
         <Link
           href="/"
-          aria-label="AFIM Football Academy — на главную"
+          aria-label={`AFIM Football Academy — ${t("nav.home")}`}
           className="flex h-[52px] w-[52px] shrink-0 items-center justify-center transition-transform duration-300 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           <Image
@@ -30,25 +63,41 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-10 text-base font-medium text-white/80 xl:flex">
-          {links.map(([label, href]) => (
-            <Link key={href} className="transition-colors hover:text-white" href={href}>{label}</Link>
-          ))}
+          {links.map(([label, href]) => {
+            const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`relative transition-colors hover:text-white after:absolute after:-bottom-2 after:left-0 after:h-[2px] after:bg-[#b6ff3b] after:transition-all after:duration-300 after:ease-out hover:after:w-full ${isActive ? "text-white after:w-full" : "after:w-0"}`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3">
+          <div className="hidden xl:block"><LanguageSwitcher /></div>
           <details className="relative xl:hidden">
-            <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-white/20 text-lg text-white marker:hidden transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">☰<span className="sr-only">Открыть меню</span></summary>
+            <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-white/20 text-lg text-white marker:hidden transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">☰<span className="sr-only">{t("nav.menu")}</span></summary>
             <nav className="absolute right-0 top-14 w-64 rounded-xl border border-white/10 bg-[#101512]/95 p-3 shadow-2xl backdrop-blur-xl">
-              {links.map(([label, href]) => (
-                <Link key={href} href={href} className="block rounded-lg px-4 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white">{label}</Link>
-              ))}
+              {links.map(([label, href]) => {
+                const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+                return (
+                  <Link key={href} href={href} className={`block rounded-lg px-4 py-3 text-sm font-medium transition hover:bg-white/10 hover:text-white ${isActive ? "bg-white/10 text-[#b6ff3b]" : "text-white/80"}`}>{label}</Link>
+                );
+              })}
+              <div className="mt-2 border-t border-white/10 px-4 pt-3"><LanguageSwitcher /></div>
             </nav>
           </details>
           <Link
             href="/#contacts"
             className="rounded-full bg-white px-4 py-3 text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:px-5"
           >
-            Записаться
+            {t("nav.register")}
           </Link>
         </div>
       </div>

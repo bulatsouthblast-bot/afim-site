@@ -1,6 +1,7 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const heroImages = [
   { src: "/images/hero-1.webp", alt: "Тренировка воспитанников AFIM с мячом" },
@@ -9,24 +10,22 @@ const heroImages = [
 ];
 
 export function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative isolate flex min-h-[80svh] overflow-hidden bg-[#101512] text-white md:min-h-[100svh]">
       <div aria-hidden="true" className="absolute inset-y-0 right-0 grid w-full grid-cols-1 gap-0 p-0 opacity-100 md:grid-cols-3 md:gap-4 md:p-6 md:opacity-70 lg:w-[68%] lg:opacity-100">
         {heroImages.map(({ src, alt }, index) => {
-          const hasImage = existsSync(join(process.cwd(), "public", src.slice(1)));
-
           return (
             <div key={src} className={`hero-collage-tile hero-collage-tile-${index + 1} group relative overflow-hidden md:rounded-3xl ${index === 1 ? "" : "hidden md:block"}`}>
-              {hasImage && (
-                <Image
-                  src={src}
-                  alt={alt}
-                  fill
-                  preload={index === 1}
-                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 33vw, 23vw"
-                  className="hero-image object-cover object-[center_top] transition duration-500 group-hover:scale-105 md:object-center"
-                />
-              )}
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                preload={index === 1}
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 33vw, 23vw"
+                className="hero-image object-cover object-[center_top] transition duration-500 group-hover:scale-105 md:object-center"
+              />
             </div>
           );
         })}
@@ -43,15 +42,15 @@ export function Hero() {
           </span>
 
           <h1 className="max-w-[14ch] text-4xl font-black leading-[0.98] tracking-[-0.055em] text-balance drop-shadow md:text-5xl md:drop-shadow-none lg:max-w-[12ch] lg:text-7xl">
-            Футбольная академия имени Асылбека Момунова
+            {t("hero.title")}
           </h1>
 
           <div className="mt-7 max-w-[40.625rem] leading-relaxed">
             <span className="inline-block border-b-2 border-lime-400 pb-1 font-semibold text-white">
-              Набор детей от 6 до 16 лет.
+              {t("hero.enrollment")}
             </span>
             <p className="mt-3 text-lg leading-relaxed text-white/90 drop-shadow md:text-xl md:text-white/80 md:drop-shadow-none">
-              Мы готовим будущих игроков национальной сборной Кыргызстана и профессиональных клубов, а также воспитываем тренеров, менеджеров и лидеров, которые будут развивать футбол страны.
+              {t("hero.description")}
             </p>
           </div>
 
@@ -66,15 +65,15 @@ export function Hero() {
               <circle cx="12" cy="12" r="4" />
               <circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none" />
             </svg>
-            <span>Следите за нами →</span>
+            <span>{t("hero.follow")}</span>
           </a>
 
           <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:gap-4">
             <a href="#contacts" className="rounded-full bg-white px-8 py-4 text-center text-sm font-bold text-black transition duration-300 hover:scale-105 hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              Записаться
+              {t("hero.cta")}
             </a>
             <a href="#branches" className="rounded-full border border-white/30 px-8 py-4 text-center text-sm font-bold text-white transition duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              Наши филиалы
+              {t("hero.branches")}
             </a>
           </div>
         </div>
